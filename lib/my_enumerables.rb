@@ -75,6 +75,14 @@ module Enumerable
     end
     array
   end
+
+  def my_inject(value = nil)
+    acc = value == nil ? acc = 0 : value
+    self.each do |element|
+      acc = yield(acc, element)
+    end
+    acc
+  end
 end
 
 
