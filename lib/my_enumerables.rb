@@ -19,6 +19,19 @@ module Enumerable
     array
   end
 
+  def my_all?
+    if block_given?
+      i = 0
+      array = []
+      self.each do |value|
+        i += 1
+        array << value if yield(value)
+      end
+      return true if array.length  == i
+    end
+    false
+  end
+
 end
 
 
