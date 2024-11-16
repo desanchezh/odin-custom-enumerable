@@ -32,6 +32,24 @@ module Enumerable
     false
   end
 
+  def my_any?
+    if block_given?
+      self.each do |value|
+        return true if yield(value)
+      end
+    end
+    false
+  end
+
+  def my_none?
+    if block_given?
+      self.each do |value|
+        return false if yield(value)
+      end
+    end
+    true
+  end
+
 end
 
 
