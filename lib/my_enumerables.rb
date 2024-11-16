@@ -1,9 +1,13 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
-    self.each do |elem|
-      i = 0
-      sx
+    index = 0
+    self.each do |element|
+      if block_given?
+        yield(element, index)
+      end
+      element
+      index += 1
     end
   end
 end
@@ -15,14 +19,11 @@ end
 class Array
   # Define my_each here
   def my_each
-    if block_given?
-      for each in self do
+    for each in self do
+      if block_given?
         yield(each)
       end
-    end
-    for each in self do
-      array = []
-      array << each
+      each
     end
   end
 end
