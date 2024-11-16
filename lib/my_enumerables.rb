@@ -10,7 +10,17 @@ module Enumerable
       index += 1
     end
   end
+
+  def my_select
+    array = []
+    self.each do |value|
+      array << value if yield(value)
+    end
+    array
+  end
+
 end
+
 
 # You will first have to define my_each
 # on the Array class. Methods defined in
