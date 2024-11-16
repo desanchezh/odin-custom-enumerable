@@ -63,6 +63,18 @@ module Enumerable
     end
     i
   end
+
+  def my_map
+    array = []
+    self.each do |value|
+      if block_given?
+        array << yield(value)
+      else
+        array << value
+      end
+    end
+    array
+  end
 end
 
 
